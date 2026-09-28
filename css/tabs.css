@@ -1,0 +1,143 @@
+.tabs {
+  .tab-labels {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  label {
+    display: flex;
+    min-height: 100px;
+    justify-content: space-between;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      background-color: var(--color-primary);
+      position: absolute;
+      width: 0px;
+      height: 100%;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      -webkit-transition: all 1s ease-in-out;
+      -moz-transition: all 1s ease-in-out;
+      -o-transition: all 1s ease-in-out;
+      transition: all 1s ease-in-out;
+    }
+
+    .number {
+      min-width: 40px;
+      max-width: 40px;
+      color: var(--color-primary);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-weight: var(--font-weight-bold);
+
+      &.Obligatorio {
+        background-color: var(--color-secondary);
+      }
+
+      &.Electivo {
+        background-color: var(--color-tertiary);
+      }
+    }
+
+    p {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      text-align: center;
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      border-left: 1px solid #ffffff;
+      min-width: 30px;
+
+      span {
+        font-size: calc(var(--font-size) + 4px);
+        &.ca {
+          background-color: #000000;
+          color: #ffffff;
+          width: 0px;
+          height: 30px;
+          visibility: hidden;
+          -webkit-transition: all 1s ease-in-out;
+          -moz-transition: all 1s ease-in-out;
+          -o-transition: all 1s ease-in-out;
+          transition: all 1s ease-in-out;
+
+          svg {
+            transform: rotate(90deg);
+          }
+        }
+      }
+    }
+  }
+
+  .tab-content {
+    display: none;
+  }
+}
+
+/* Regla para estilizar la etiqueta del curso activo */
+.tab-labels input[type="radio"]:checked + label {
+  color: #ffffff;
+  &::before {
+    width: 100%;
+  }
+  .ca {
+    visibility: visible;
+    border-bottom: 1px solid #fff;
+    width: 30px;
+  }
+}
+
+.horizontal-tab-labels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-bottom: 1px solid var(--color-primary);
+  margin-bottom: calc(var(--gap) * 2);
+
+  /* Ocultar los radio buttons de las facultades */
+  input[type="radio"] {
+    display: none;
+  }
+
+  label {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    margin-bottom: -1px;
+    font-size: var(--font-size);
+    font-weight: var(--font-weight-bold);
+    transition:
+      background-color 0.3s,
+      border-color 0.3s;
+  }
+}
+
+.horizontal-tab-contents .horizontal-tab-content {
+  display: none;
+  width: 100%;
+}
+
+/* Show content and style active label for horizontal tabs */
+.horizontal-tab-labels input[name="group-tabs"]:checked + label {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: #fff;
+}

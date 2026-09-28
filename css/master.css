@@ -1,0 +1,203 @@
+@layer reset, root, grid, spacer, text, utilities, accordion, tabs, master, mobile, loader;
+
+@import "reset.css" layer(reset);
+@import "root.css";
+@import "grid.css";
+@import "spacers.css";
+@import "text.css";
+@import "utilities.css";
+@import "accordion.css" layer(accordion);
+@import "tabs.css" layer(tabs);
+@import "loader.css";
+
+@layer master {
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 0 auto;
+    min-height: 100dvh;
+    min-height: 100vh;
+    padding: 0 var(--gap);
+    color: var(--color-primary);
+  }
+
+  h2,
+  h3 {
+    font-weight: var(--font-weight-normal);
+  }
+
+  .convenciones {
+    display: flex;
+    gap: var(--gap);
+    max-width: 100%;
+
+    .convencion {
+      display: flex;
+      gap: var(--gap);
+      align-items: center;
+      border-right: 1px solid var(--color-primary);
+      padding-right: var(--gap);
+      line-height: 1;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+      }
+
+      &.Obligatorio {
+        &::before {
+          background-color: var(--color-secondary);
+        }
+      }
+
+      &.Electivo {
+        &::before {
+          background-color: var(--color-tertiary);
+        }
+      }
+
+      &.ca {
+        &::before {
+          display: none;
+        }
+
+        span {
+          background-color: #000000;
+          color: #ffffff;
+          min-width: 15px;
+          min-height: 15px;
+          max-width: 15px;
+          max-height: 15px;
+
+          svg {
+            transform: rotate(90deg);
+          }
+        }
+      }
+    }
+  }
+
+  .metadata {
+    display: flex;
+
+    .metadata-item {
+      display: flex;
+      flex-direction: column;
+      padding-right: var(--gap);
+      padding-left: var(--gap);
+      justify-content: center;
+      border-right: 1px solid var(--color-primary);
+
+      &:last-child {
+        border-right: none;
+      }
+
+      .credits {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h2 {
+          font-weight: var(--font-weight-bold);
+        }
+
+        span {
+          &.Obligatorio {
+            background-color: var(--color-secondary);
+          }
+
+          &.Electivo {
+            background-color: var(--color-tertiary);
+          }
+        }
+      }
+
+      &.Obligatorio {
+        div {
+          display: flex;
+          align-items: center;
+
+          &.color::before {
+            content: "";
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: var(--gap);
+            background-color: var(--color-secondary);
+          }
+        }
+      }
+
+      &.Electivo {
+        div {
+          display: flex;
+          align-items: center;
+
+          &.color::before {
+            content: "";
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: var(--gap);
+            background-color: var(--color-tertiary);
+          }
+        }
+      }
+    }
+  }
+}
+
+@layer mobile {
+  @media (max-width: 768px) {
+    .convenciones {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 425px) {
+    .convenciones {
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+
+    .metadata {
+      flex-direction: column;
+
+      .metadata-item {
+        border-right: 0;
+        border-bottom: 1px solid var(--color-primary);
+        padding-bottom: var(--gap);
+        padding-top: var(--gap);
+        text-align: center;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .credits {
+          span {
+            width: 100%;
+            background-color: var(--color-secondary);
+          }
+        }
+
+        &.Obligatorio,
+        &.Electivo {
+          div {
+            &.color {
+              justify-content: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}

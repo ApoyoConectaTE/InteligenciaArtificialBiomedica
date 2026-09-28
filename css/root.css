@@ -1,0 +1,30 @@
+@import "font.css" layer(font);
+
+@layer root {
+  :root {
+    --columns: 12;
+    --gap: 1rem;
+    --column-size: calc(100% / var(--columns));
+
+    --font-sans: "Work Sans", sans-serif;
+    --font-serif: "Merriweather", serif;
+    --font-mono: "Space Mono", monospace;
+
+    --font-weight-thin: 100;
+    --font-weight-extralight: 200;
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+    --font-weight-black: 900;
+
+    --font-size: 18px;
+
+    --color-primary: #000000;
+    --color-secondary: #f5911e;
+    --color-tertiary: #1c937c;
+    --color-quaternary: #f0f0f0;
+  }
+}

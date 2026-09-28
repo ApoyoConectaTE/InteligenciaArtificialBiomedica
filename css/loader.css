@@ -1,0 +1,57 @@
+@layer signalLoader {
+  .loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    background-color: #ffffff;
+    transition: top 3s ease-out;
+    padding-top: 25%;
+
+    .signals {
+      display: flex;
+      align-items: baseline;
+      transform: translateY(-13px);
+
+      span {
+        width: 5px;
+        background-color: var(--color-quaternary);
+        margin: 0 5px;
+        height: calc(5px * var(--i));
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        animation: animate 3s linear infinite;
+        animation-delay: calc(0.25s * var(--i));
+
+        i {
+          display: block;
+          color: var(--color-secondary);
+          font-size: 20px;
+          font-style: normal;
+          font-weight: bold;
+          transform: translateY(35px);
+        }
+      }
+    }
+  }
+
+  @keyframes animate {
+    0% {
+      background-color: var(--color-secondary);
+    }
+    25%,
+    75% {
+      background-color: var(--color-quaternary);
+      box-shadow: none;
+    }
+    100% {
+      background-color: var(--color-secondary);
+    }
+  }
+}

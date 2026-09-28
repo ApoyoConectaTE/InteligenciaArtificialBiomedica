@@ -1,0 +1,42 @@
+@layer portable {
+  @media (max-width: 1024px) {
+    .col-md-5 {
+      flex: 0 0 calc(calc(var(--column-size) * 5) - var(--gap));
+      max-width: calc(calc(var(--column-size) * 5) - var(--gap));
+    }
+
+    .col-md-6 {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+
+    .col-md-7 {
+      flex: 0 0 calc(calc(var(--column-size) * 7) - var(--gap));
+      max-width: calc(calc(var(--column-size) * 7) - var(--gap));
+    }
+
+    .col-md-8 {
+      flex: 0 0 calc(calc(var(--column-size) * 8) - var(--gap));
+      max-width: calc(calc(var(--column-size) * 8) - var(--gap));
+    }
+  }
+}
+
+@layer tablet {
+  @media (max-width: 768px) {
+    .row {
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-12 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+}

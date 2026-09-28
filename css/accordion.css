@@ -1,0 +1,46 @@
+details {
+  summary {
+    cursor: pointer;
+    position: relative;
+    list-style: none;
+    border-bottom: 1px solid var(--color-secondary);
+
+    span {
+      color: var(--color-secondary);
+    }
+
+    &:-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  &[open] {
+    margin-bottom: 2%;
+    .arrow {
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
+
+  &:not([open]) .arrow {
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: 10px;
+  }
+}
+
+.arrow {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  width: 25px;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease;
+}
+
+.details-content {
+  max-height: auto;
+  overflow: hidden;
+  transition: max-height 1s ease;
+}
